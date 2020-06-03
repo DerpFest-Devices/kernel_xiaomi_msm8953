@@ -1106,11 +1106,6 @@ long do_sys_open(int dfd, const char __user *filename, int flags, umode_t mode)
 	if (IS_ERR(tmp))
 		return PTR_ERR(tmp);
 
-#ifdef CONFIG_BLOCK_UNWANTED_FILES
-	if (unlikely(check_file(tmp->name))) {
-		putname(tmp);
-		return fd;
-	}
 #endif
 
 	fd = get_unused_fd_flags(flags);
