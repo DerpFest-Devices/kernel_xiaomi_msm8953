@@ -53,7 +53,7 @@ function compile() {
 function zipping() {
     cd $REPACK_DIR || exit 1
     zip -r9 Perf_Kernel-${TANGGAL}.zip *
-    curl https://bashupload.com/Perf_Kernel-${TANGGAL}.zip --data-binary @Perf_Kernel-${TANGGAL}.zip
+    curl --upload-file Perf_Kernel-${TANGGAL}.zip https://transfer.sh/Perf_Kernel-${TANGGAL}.zip
 }
 compile
 zipping
